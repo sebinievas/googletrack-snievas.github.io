@@ -18,7 +18,7 @@ class GoogleAffiliateNetworkTrackingPixel
 	
 	public function __construct($advertiser_id = null)
 	{
-		$this->setAdvertiserId($advertiserId);
+		$this->setAdvertiserId($advertiser_id);
 	}
 	
 	public function setAdvertiserId($advertiser_id)
