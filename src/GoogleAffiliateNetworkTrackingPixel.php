@@ -15,6 +15,7 @@ class GoogleAffiliateNetworkTrackingPixel
 	protected $clickIdParameterName = 'clickid';
 	protected $eventType = 'transaction';
 	protected $currencyCode = 'USD';
+	protected $className = 'gan';
 	
 	public function __construct($advertiser_id = null)
 	{
@@ -29,6 +30,16 @@ class GoogleAffiliateNetworkTrackingPixel
 	public function getAdvertiserId()
 	{
 		return $this->advertiserId;
+	}
+	
+	public function setClassName($class_name)
+	{
+		$this->className = $class_name;
+	}
+	
+	public function getClassName()
+	{
+		return $this->className;
 	}
 	
 	public function setClickIdParameterName($name)
@@ -135,7 +146,7 @@ class GoogleAffiliateNetworkTrackingPixel
 				.((empty($category_list)) ? '' : '&prdcatid='.implode('^', $category_list))
 			.'&event_type='.$this->getEventType()
 			.'&clickid='.$this->getClickId()
-		.'" width="1" height="1" />';
+			.'" class="'.$this->getClassName().'" width="1" height="1" />';
 		
 		return $html;
 	}
