@@ -126,7 +126,7 @@ class GoogleAffiliateNetworkTrackingPixel
 		foreach ($this->itemList as $item)
 		{
 			$sku_list[]      = $item['sku'];
-			$price_list[]    = $item['price'];
+			$price_list[]    = number_format($item['price'], 2, '.', '');
 			$quantity_list[] = $item['quantity'];
 			
 			if (isset($item['category_id']))
@@ -138,7 +138,7 @@ class GoogleAffiliateNetworkTrackingPixel
 		$html = '<img src="https://gan.doubleclick.net/gan_conversion?'
 			.'advid='.$this->getAdvertiserId()
 			.'&oid='.$this->getOrderId()
-			.'&amt='.$this->getOrderAmount()
+			.'&amt='.number_format($this->getOrderAmount(), 2, '.', '')
 			.'&fxsrc='.$this->getCurrencyCode()
 				.((empty($sku_list))      ? '' : '&prdsku='  .implode('^', $sku_list))
 				.((empty($price_list))    ? '' : '&prdpr='   .implode('^', $price_list))
